@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mənim 3D Modelim</title>
+    
+    <!-- Google-un 3D model göstəricisi (model-viewer) kitabxanası -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
+    <style>
+        /* Bütün səhifənin kənar boşluqlarını sıfırlayırıq */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Arxa fonu tünd və müasir edirik ki, 3D model yaxşı görünsün */
+        body {
+            background: radial-gradient(circle at center, #2b323c 0%, #14171c 100%);
+            font-family: Arial, sans-serif;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Yuxarıdakı başlıq yazısı */
+        .basliq {
+            position: absolute;
+            top: 20px;
+            text-align: center;
+            z-index: 10;
+            pointer-events: none; /* Siçanla modeli fırladanda yazı mane olmasın */
+        }
+
+        .basliq h1 {
+            font-size: 24px;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .basliq p {
+            font-size: 14px;
+            color: #a0aab5;
+        }
+
+        /* 3D modelin yerləşəcəyi sahə (bütün ekranı tutur) */
+        model-viewer {
+            width: 100%;
+            height: 100%;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="basliq">
+        <h1>3D Model Baxışı</h1>
+        <p>Fırlatmaq üçün siçanla tutub sağa-sola çəkin • Yaxınlaşdırmaq üçün diyircəyi fırladın</p>
+    </div>
+
+    <!-- 3D Modelin özü burada göstərilir -->
+    <model-viewer 
+        src="model.glb" 
+        alt="3D Blender Modeli"
+        camera-controls 
+        auto-rotate 
+        shadow-intensity="1"
+        exposure="1">
+    </model-viewer>
+
+</body>
+</html>
